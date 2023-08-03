@@ -1,0 +1,17 @@
+.pagination{
+  justify-content: center;
+}
+.page{
+  margin: 10px;
+  background: none;
+  border: 1px solid #666;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+.page.active{
+  background-color: blue;
+  color: white;
+  border: 1px solid blue;
+}
+

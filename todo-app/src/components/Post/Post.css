@@ -1,0 +1,39 @@
+/* .posts-tab {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+} */
+
+
+.separate-post{
+  cursor: pointer;
+  background: rgb(231, 231, 231);
+  border-radius: 20px;
+  margin: 2rem 4rem;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+.separate-post:hover {
+  transform: scale(1.1);
+}
+.post-per-page {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+}
+.post-per-page p {
+  margin-right: 10px;
+}
+.number-of-posts{
+  cursor: pointer;
+  margin-right: 10px;
+}
+.number-of-posts.active{
+  font-weight: bold;
+}
+
+.number-of-posts:hover {
+  font-weight: bold;
+}
