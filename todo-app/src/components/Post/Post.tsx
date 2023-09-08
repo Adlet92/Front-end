@@ -11,9 +11,9 @@ const Post = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
-  const url = 'https://jsonplaceholder.typicode.com/todos/'
+  const url_posts = 'https://jsonplaceholder.typicode.com/posts/'
   useEffect(() => {
-    axios.get(url).then((response) => {
+    axios.get(url_posts).then((response) => {
       setPosts(response.data);
       setLoading(false);
     }).catch((error) => {

@@ -1,10 +1,9 @@
-/* .posts-tab {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-} */
-
-
+.post-card {
+  /* your existing card styles */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 .separate-post{
   cursor: pointer;
   background: rgb(231, 231, 231);
@@ -36,4 +35,40 @@
 
 .number-of-posts:hover {
   font-weight: bold;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  width: 100%;
+}
+.comments {
+  margin-top: 10px; /* Add spacing between post content and comment section */
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+}
+
+.comments h4 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+.comments ul {
+  list-style: none;
+  padding: 0;
+}
+
+.comments li {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.comments p {
+  margin: 0;
+  display: flex;
 }
