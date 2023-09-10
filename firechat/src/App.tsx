@@ -4,8 +4,8 @@ import "./App.css"
 import Chat from "./components/Chat"
 import MainPage from "./components/MainPage/MainPage"
 import ProtectedRoute from "./components/ProtectedRoute"
-import SignIn from "./components/SignIn"
-import SignUp from "./components/SignUp"
+import SignIn from "./components/SignIn/SignIn"
+import SignUp from "./components/SignUp/SignUp"
 import { AuthContextProvider } from "./components/context/AuthContext"
 
 

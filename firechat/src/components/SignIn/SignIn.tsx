@@ -1,9 +1,10 @@
 
 import React, { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { routes } from "../utils/routes"
-import Loading from "./Loading/Loading"
-import { UserAuth } from "./context/AuthContext"
+import { routes } from "../../utils/routes"
+import Loading from "../Loading/Loading"
+import { UserAuth } from "../context/AuthContext"
+import "./SignIn.css"
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState<string>("");

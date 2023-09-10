@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../utils/routes";
 import { UserAuth } from "../context/AuthContext";
+import "./MainPage.css";
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate()

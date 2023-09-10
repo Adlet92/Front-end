@@ -1,24 +1,13 @@
 import { DocumentData, collection, limit, onSnapshot, orderBy, query } from 'firebase/firestore';
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { auth, db } from "../firebase";
-import { routes } from "../utils/routes";
+import Header from './Header/Header';
 import SendMessages from './SendMessages';
-import { UserAuth } from "./context/AuthContext";
 
 function Chat() {
-  const authUser = UserAuth();
-  const user = authUser && authUser.user;
-  const logout = authUser && authUser.logout;
-  const navigate = useNavigate();
+  const scroll = useRef<HTMLDivElement | null>(null);
 
-  // const [messages, setMessages] = useState([]);
   const [messages, setMessages] = useState<DocumentData[]>([]);
-  // useEffect(() => {
-  //   db.collection('messages').orderBy('createAt').limit(50).onSnapshot(snapshot => {
-  //     setMessages(snapshot.docs.map(doc => doc.data()))
-  //   })
-  // },[])
   useEffect(() => {
     const messagesCollection = collection(db, 'messages');
     const messagesQuery = query(messagesCollection, orderBy('createAt'), limit(50));
@@ -32,19 +21,9 @@ function Chat() {
     };
   }, []);
 
-  const handleLogout = () => {
-    if (logout) {
-      logout().then(() => navigate(routes.main));
-    }
-  };
   return (
-    <div className="header">
-    <div className="frame4">
-      <div className="account-label">{user && user.email}</div>
-      <button className="logout-button" onClick={handleLogout}>
-        Log Out
-      </button>
-      </div>
+    <div>
+      <Header/>
       <div className="msgs">
         {messages.map(({ id, text, uid }) => (
           <div>
@@ -54,7 +33,8 @@ function Chat() {
             </div>
         ))}
       </div>
-      <SendMessages/>
+      <SendMessages scroll={scroll} />
+      <div ref={scroll}></div>
   </div>
   )
 }

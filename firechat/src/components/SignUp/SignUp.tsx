@@ -1,11 +1,11 @@
 
 import React, { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-
-import { routes } from "../utils/routes"
-import { validateForm } from "../utils/validation"
-import Loading from "./Loading/Loading"
-import { UserAuth } from "./context/AuthContext"
+import { routes } from "../../utils/routes"
+import { validateForm } from "../../utils/validation"
+import Loading from "../Loading/Loading"
+import { UserAuth } from "../context/AuthContext"
+import "./SignUp.css"
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -32,7 +32,7 @@ const SignUp: React.FC = () => {
     try {
       if (auth && auth.createUser) {
       await auth.createUser(email, password);
-      navigate(routes.search);
+      navigate(routes.chat);
       }
     } catch (error_: unknown) {
       if (typeof error_ === "object" && error_ !== null) {
