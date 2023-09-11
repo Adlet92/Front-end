@@ -3,37 +3,49 @@ import { useEffect, useRef, useState } from "react";
 import { auth, db } from "../firebase";
 import Header from './Header/Header';
 import SendMessages from './SendMessages';
+import { ChatSelectedTopic } from './types/types';
 
-function Chat() {
+
+interface ChatProps {
+  selectedTopic: ChatSelectedTopic | null;
+}
+
+function Chat({ selectedTopic }: ChatProps) {
   const scroll = useRef<HTMLDivElement | null>(null);
-
   const [messages, setMessages] = useState<DocumentData[]>([]);
+  const user = auth.currentUser;
+
   useEffect(() => {
-    const messagesCollection = collection(db, 'messages');
-    const messagesQuery = query(messagesCollection, orderBy('createAt'), limit(50));
+    if (selectedTopic) {
+      const chatCollection = collection(db, `chat-${selectedTopic.id}`);
+      const messagesQuery = query(chatCollection, orderBy('createAt'), limit(50));
 
-    const unsubscribe = onSnapshot(messagesQuery, (snapshot) => {
-      setMessages(snapshot.docs.map((doc) => doc.data()));
-    });
+      const unsubscribe = onSnapshot(messagesQuery, (snapshot) => {
+        setMessages(snapshot.docs.map((doc) => doc.data()));
+      });
 
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+      return () => {
+        unsubscribe();
+      };
+    }
+  }, [selectedTopic]);
 
   return (
     <div>
       <Header/>
       <div className="msgs">
-        {messages.map(({ id, text, uid }) => (
+        {messages.map(({ id, text, uid, username}) => (
           <div>
               <div key={id} className={`msg ${uid === (auth.currentUser ? auth.currentUser.uid : null) ? 'sent' : 'received'}`}>
-                <p>{text}</p>
+              <p>
+                <span className="username">{username}:</span>
+                {text}
+              </p>
               </div>
             </div>
         ))}
       </div>
-      <SendMessages scroll={scroll} />
+      <SendMessages selectedTopic={selectedTopic} scroll={scroll} user={user}/>
       <div ref={scroll}></div>
   </div>
   )

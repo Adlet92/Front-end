@@ -9,6 +9,10 @@ const Header = () => {
   const logout = authUser && authUser.logout;
   const navigate = useNavigate();
 
+  const handleBackToSearch = () => {
+    navigate(routes.topics);
+  };
+
   const handleLogout = () => {
     if (logout) {
       logout().then(() => navigate(routes.main));
@@ -18,6 +22,7 @@ const Header = () => {
   return (
     <div className="header">
         <div className="frame4">
+          <button className="back-to-search-button"  onClick={handleBackToSearch}>Back to search</button>
           <div className="account-label">{user && user.email}</div>
           <button className="logout-button" onClick={handleLogout}>
             Log Out

@@ -11,7 +11,7 @@ const MainPage: React.FC = () => {
 
     const handleLogin = () => {
       if (user) {
-        navigate(routes.chat);
+        navigate(routes.topics);
       } else {
         navigate(routes.signin);
       }

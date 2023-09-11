@@ -4,4 +4,5 @@ export const routes = {
   signin: "/auth/signin",
   proteinRoute: "/protein",
   main: "/",
+  topics: "/topics",
 };

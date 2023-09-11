@@ -31,7 +31,7 @@ const SignIn: React.FC = () => {
     try {
       if (auth && auth.signIn) {
         await auth.signIn(email, password);
-        navigate(routes.chat)
+        navigate(routes.topics)
       }
     } catch {
       setError(

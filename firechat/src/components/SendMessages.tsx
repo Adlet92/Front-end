@@ -1,20 +1,24 @@
 import { Button, Input } from '@mui/material';
+import { User } from 'firebase/auth';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { useState } from "react";
 import { auth, db } from "../firebase";
 
 
-function SendMessages({ scroll }: { scroll: React.MutableRefObject<HTMLDivElement | null> } ) {
+function SendMessages({ selectedTopic, scroll, user }: { selectedTopic: any; scroll: React.MutableRefObject<HTMLDivElement | null>; user: User | null } ) {
   const [msg, setMsg] = useState('');
 
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault()
     if (db) {
       const uid = auth.currentUser?.uid;
+      const userEmail = user ? user.email : 'Unknown User';
+      console.log(userEmail)
       try {
-        await addDoc(collection(db, 'messages'), {
+        await addDoc(collection(db, `chat-${selectedTopic.id}`), {
           text: msg,
           uid,
+          username: userEmail,
           createAt: serverTimestamp(),
         });
         setMsg('');
