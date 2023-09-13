@@ -1,18 +1,12 @@
-img {
-  border-radius: 50%;
-  height: 45px;
-  margin-top: -20px;
-  border: 2px solid black;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 p {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 500;
+  font-family: 'Open Sans';
   font-size: 25px;
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
   overflow-wrap: break-word;
+  text-align: justify;
 }
 
 .msg {
@@ -22,13 +16,15 @@ p {
   border-radius: 3000px;
   box-shadow: 0 0 10px rgb(164, 164, 164);
   align-items: center;
+  min-width: 200px;
+  max-width: 530px;
 }
 
 .sent {
   background-color: #395dff;
   color: white;
   border-top-right-radius: 1000px;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   padding: 20px 20px 0 10px;
   text-align: end;
   float: right;

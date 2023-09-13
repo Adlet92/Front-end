@@ -12,7 +12,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const auth = UserAuth();
 
   if (!auth || !auth.user) {
-    return <Navigate to={routes.main} />;
+    return <Navigate to={routes.signin} />;
   }
 
   return <>{children}</>;

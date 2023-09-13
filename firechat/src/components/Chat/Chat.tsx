@@ -1,9 +1,10 @@
 import { DocumentData, collection, limit, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { useEffect, useRef, useState } from "react";
-import { auth, db } from "../firebase";
-import Header from './Header/Header';
-import SendMessages from './SendMessages';
-import { ChatSelectedTopic } from './types/types';
+import { auth, db } from "../../firebase";
+import Header from '../Header/Header';
+import SendMessages from '../SendMessages/SendMessages';
+import { ChatSelectedTopic } from '../types/types';
+import "./Chat.css";
 
 
 interface ChatProps {
@@ -37,10 +38,9 @@ function Chat({ selectedTopic }: ChatProps) {
         {messages.map(({ id, text, uid, username}) => (
           <div>
               <div key={id} className={`msg ${uid === (auth.currentUser ? auth.currentUser.uid : null) ? 'sent' : 'received'}`}>
-              <p>
-                <span className="username">{username}:</span>
-                {text}
-              </p>
+                <div className="user">{username}
+                  <p className="message-text">{text}</p>
+                </div>
               </div>
             </div>
         ))}

@@ -1,8 +1,7 @@
 export const routes = {
   chat: "/chat",
-  signup: "/auth/signup",
-  signin: "/auth/signin",
+  signup: "/signup",
+  signin: "/",
   proteinRoute: "/protein",
-  main: "/",
   topics: "/topics",
 };

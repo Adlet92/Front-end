@@ -15,7 +15,7 @@ const Header = () => {
 
   const handleLogout = () => {
     if (logout) {
-      logout().then(() => navigate(routes.main));
+      logout().then(() => navigate(routes.signin));
     }
   };
 

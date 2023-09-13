@@ -1,13 +1,10 @@
-import { Route, Routes } from "react-router-dom"
-import "./App.css"
-
 import { useState } from "react"
-import Chat from "./components/Chat"
-import MainPage from "./components/MainPage/MainPage"
+import { Route, Routes } from "react-router-dom"
+import Chat from "./components/Chat/Chat"
 import ProtectedRoute from "./components/ProtectedRoute"
 import SignIn from "./components/SignIn/SignIn"
 import SignUp from "./components/SignUp/SignUp"
-import TopicSelection from "./components/TopicSelection"
+import TopicSelection from "./components/TopicSelection/TopicSelection"
 import { AuthContextProvider } from "./components/context/AuthContext"
 import { ChatSelectedTopic } from "./components/types/types"
 
@@ -23,9 +20,8 @@ function App() {
     <div>
       <AuthContextProvider>
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/auth/signup" element={<SignUp />} />
-          <Route path="/auth/signin" element={<SignIn />} />
+          <Route path="/" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route
             path="/chat"
             element={

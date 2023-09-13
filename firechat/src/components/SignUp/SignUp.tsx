@@ -32,7 +32,7 @@ const SignUp: React.FC = () => {
     try {
       if (auth && auth.createUser) {
       await auth.createUser(email, password);
-      navigate(routes.chat);
+      navigate(routes.topics);
       }
     } catch (error_: unknown) {
       if (typeof error_ === "object" && error_ !== null) {
