@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Route, Routes } from "react-router-dom"
 import Chat from "./components/Chat/Chat"
+import PageNotFound from "./components/PageNotFound/PageNotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
 import SignIn from "./components/SignIn/SignIn"
 import SignUp from "./components/SignUp/SignUp"
@@ -35,6 +36,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <TopicSelection onSelectTopic={handleTopicSelection} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <ProtectedRoute>
+                <PageNotFound />
               </ProtectedRoute>
             }
           />

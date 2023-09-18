@@ -84,17 +84,16 @@ form .data input{
   border-color: transparent;
 }
 form .data input:not(:placeholder-shown) {
-    border: 1px solid #9F9F9F;
-    background: white;
-  }
+  border: 1px solid #9F9F9F;
+  background: white;
+}
 .error-input {
-    border: 2px solid #EC3030 !important;
-    background: white;
-  }
+  border: 2px solid #EC3030 !important;
+  background: white;
+}
 .error-message {
   left: calc(50% - 396px/2 + 22px);
   top: calc(50% - 12px/2 + 68px);
-
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
@@ -102,7 +101,7 @@ form .data input:not(:placeholder-shown) {
   line-height: 12px;
   text-align: center;
   color: #EC3030;
-  }
+}
 
 form .btn-signup{
 	height: 45px;
@@ -128,7 +127,6 @@ form .btn-signup button{
   line-height: 16px;
   color: #175BC0;
 }
-
 
 form .signup-link{
 	text-align: center;

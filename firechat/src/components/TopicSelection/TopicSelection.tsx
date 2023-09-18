@@ -20,7 +20,7 @@ function TopicSelection({ onSelectTopic }: { onSelectTopic: OnSelectTopic }) {
 
   return (
     <div>
-      <Header />
+      <Header backButton={false} />
       <div className="topics">
         <div>
           <h2>Choose a Topic:</h2>

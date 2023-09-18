@@ -33,7 +33,7 @@ function Chat({ selectedTopic }: ChatProps) {
 
   return (
     <div>
-      <Header/>
+      <Header backButton={true}/>
       <div className="msgs">
         {messages.map(({ id, text, uid, username}) => (
           <div>
