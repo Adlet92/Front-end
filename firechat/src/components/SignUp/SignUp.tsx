@@ -123,7 +123,7 @@ const SignUp: React.FC = () => {
               {errors.length > 0 && (
                 <div className="error-message">
                   {errors.map((error, index) => (
-                    <p key={index}>{error}</p>
+                    <p key={index} className="error-paragraph">{error}</p>
                   ))}
                 </div>
               )}

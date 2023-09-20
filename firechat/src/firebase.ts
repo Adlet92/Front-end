@@ -5,13 +5,13 @@ import { getFirestore } from 'firebase/firestore';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAoPvtccVHS9O0DCqvw7JWAARdsdZpuX3Y",
-  authDomain: "firechat-9c94b.firebaseapp.com",
-  projectId: "firechat-9c94b",
-  storageBucket: "firechat-9c94b.appspot.com",
-  messagingSenderId: "1004688616155",
-  appId: "1:1004688616155:web:c23fa55fd7a3cb30b73afe",
-  measurementId: "G-5DE4F8RFFH"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);

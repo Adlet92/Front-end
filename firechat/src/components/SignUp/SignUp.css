@@ -4,7 +4,7 @@
 }
 .main-container{
 	width: 456px;
-  height: 434px;
+  min-height: 434px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -18,7 +18,7 @@
 }
 .error{
 	width: 456px;
-  height: 484px;
+  height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -128,7 +128,7 @@ form .btn-signup button{
   color: #175BC0;
 }
 
-form .signup-link{
+.signup-link{
 	text-align: center;
   font-family: 'Open Sans';
   font-style: normal;
@@ -138,7 +138,7 @@ form .signup-link{
   color: #000000;
 }
 
-form .signup-link a{
+.signup-link a{
   font-weight: 800;
   color: #000000;
 	text-decoration: none;

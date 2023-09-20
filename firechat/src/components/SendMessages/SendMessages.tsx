@@ -11,18 +11,21 @@ function SendMessages({ selectedTopic, scroll, user }: { selectedTopic: any; scr
 
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault()
+    // if (!selectedTopic) {
+    //   console.error("No selected topic");
+    //   return;
+    // }
     if (db) {
       const uid = auth.currentUser?.uid;
       const userEmail = user ? user.email : 'Unknown User';
-      console.log(userEmail)
       try {
+        setMsg('');
         await addDoc(collection(db, `chat-${selectedTopic.id}`), {
           text: msg,
           uid,
           username: userEmail,
           createAt: serverTimestamp(),
         });
-        setMsg('');
       } catch (error) {
         console.error("Error adding message:", error);
       }
@@ -34,8 +37,13 @@ function SendMessages({ selectedTopic, scroll, user }: { selectedTopic: any; scr
   return (
     <div className="sendMsg">
       <form onSubmit={sendMessage} className='message-form'>
-        <Input style={{ width: '78%', fontSize: '15px', fontWeight: '550', marginLeft: '5px', marginBottom: '-3px' }} value={ msg } onChange={(e) => setMsg(e.target.value)} placeholder="Message..." />
-        <Button style={{ width: '18%', fontSize: '15px', fontWeight: '550', margin: '4px 5% -13px 5%', maxWidth: '200px'}} type="submit">Send</Button>
+        <Input
+          style={{ width: '78%', fontSize: '15px', fontWeight: '550', marginLeft: '5px', marginBottom: '-3px' }}
+          value={msg} onChange={(e) => setMsg(e.target.value)}
+          placeholder="Message..." />
+        <Button
+          style={{ width: '18%', fontSize: '15px', fontWeight: '550', margin: '4px 5% -13px 5%', maxWidth: '200px' }}
+          type="submit">Send</Button>
       </form>
     </div>
   )
