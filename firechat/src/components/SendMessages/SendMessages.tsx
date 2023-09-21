@@ -11,10 +11,6 @@ function SendMessages({ selectedTopic, scroll, user }: { selectedTopic: any; scr
 
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault()
-    // if (!selectedTopic) {
-    //   console.error("No selected topic");
-    //   return;
-    // }
     if (db) {
       const uid = auth.currentUser?.uid;
       const userEmail = user ? user.email : 'Unknown User';

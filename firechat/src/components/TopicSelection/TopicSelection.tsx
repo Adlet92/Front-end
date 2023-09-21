@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../utils/routes";
 import Header from "../Header/Header";
 import "./TopicSelection.css";
 
@@ -15,7 +14,8 @@ function TopicSelection({ onSelectTopic }: { onSelectTopic: OnSelectTopic }) {
 
   const handleTopicSelect = (topic: { id: string }) => {
     onSelectTopic(topic);
-    navigate(routes.chat);
+    // navigate(routes.chat);
+    navigate(`/chat/${topic.id}`);
   };
 
   return (

@@ -1,6 +1,6 @@
 import { DocumentData, collection, getDocs, limit, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { auth, db } from "../../firebase";
 import { routes } from '../../utils/routes';
 import Header from '../Header/Header';
@@ -8,8 +8,6 @@ import Loading from '../Loading/Loading';
 import SendMessages from '../SendMessages/SendMessages';
 import { ChatSelectedTopic } from '../types/types';
 import "./Chat.css";
-
-const STORAGE_KEY = "";
 
 interface ChatProps {
   selectedTopic: ChatSelectedTopic | null;
@@ -22,14 +20,9 @@ function Chat({ selectedTopic }: ChatProps) {
   const [initialDataLoaded, setInitialDataLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { topicId } = useParams();
 
   useEffect(() => {
-    let topicId = localStorage.getItem(STORAGE_KEY);
-
-    if (selectedTopic) {
-      topicId = selectedTopic.id;
-    }
-
     if (topicId) {
       const chatCollection = collection(db, `chat-${topicId}`);
       const messagesQuery = query(chatCollection, orderBy('createAt'), limit(50));
@@ -76,18 +69,12 @@ function Chat({ selectedTopic }: ChatProps) {
     } else {
       navigate(routes.topics)
     }
-  }, [selectedTopic, initialDataLoaded, navigate]);
-
-  useEffect(() => {
-    if (selectedTopic) {
-      localStorage.setItem(STORAGE_KEY, selectedTopic.id);
-    }
-  }, [selectedTopic]);
-
+  }, [topicId, initialDataLoaded, navigate]);
 
   return (
     <div>
-      <Header backButton={true}/>
+      <Header backButton={true} />
+      <div className="selected-topic-id">{topicId} chat</div>
       <div className="msgs">
         {loading ? (
           <Loading/>
@@ -107,5 +94,4 @@ function Chat({ selectedTopic }: ChatProps) {
   </div>
   )
 }
-
 export default Chat

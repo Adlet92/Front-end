@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route
-            path="/chat"
+            path="/chat/:topicId"
             element={
               <ProtectedRoute>
                 <Chat selectedTopic={selectedTopic} />
