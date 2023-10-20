@@ -6,13 +6,13 @@ import {
 } from 'react-router-dom';
 import BookDetails from "./components/BookDetails/BookDetails";
 import BookList from "./components/BookList/BookList";
-// import { AppProvider } from './context.';
+import { AppProvider } from './context';
 import './index.css';
 import About from "./pages/About/About";
 import Home from './pages/Home/Home';
 
 ReactDOM.createRoot(document.querySelector("#root") as HTMLElement).render(
-  // <AppProvider>
+  <AppProvider>
     <BrowserRouter>
       <Routes>
         <Route path = "/" element = {<Home />}>
@@ -22,5 +22,5 @@ ReactDOM.createRoot(document.querySelector("#root") as HTMLElement).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  // </AppProvider>
+  </AppProvider>
 );
