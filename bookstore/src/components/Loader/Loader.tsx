@@ -1,11 +1,15 @@
-import "./Loader.css";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
-const Loader = () => {
+export default function Loading() {
   return (
-    <div className='loader flex flex-c'>
-      {/* <img src = {LoaderImg} alt = "loader" /> */}
+    <div>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme: { zIndex: { drawer: number; }; }) => theme.zIndex.drawer + 1 }}
+        open
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
-  )
+  );
 }
-
-export default Loader
