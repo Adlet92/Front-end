@@ -1,0 +1,33 @@
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+.form-group {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
+  margin-top: 15px;
+}
+.select-form{
+  padding: 1.4rem 2.8rem;
+  border-radius: 3.8rem;
+  margin-left: 10px;
+}
+@media (max-width: 600px) {
+  .form-group {
+    flex-direction: column;
+  }
+
+  .form-row {
+    margin-bottom: 10px;
+  }
+  .form-row p{
+    margin-right: 10px;
+  }
+
+  .select-form {
+    margin-left: 0;
+  }
+}
